@@ -1,0 +1,6 @@
+@BleachAPI_HostAddress = http://localhost:5005
+
+GET {{BleachAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
