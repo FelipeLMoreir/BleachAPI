@@ -19,43 +19,9 @@
         public string Bankai { get; private set; } = string.Empty;
         public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; private set; } = DateTime.UtcNow;
-
         public List<CharAffiliation> Affiliations { get; private set; } = new();
         public List<CharBaseOps> BaseOps { get; private set; } = new();
         public List<CharRelatives> Relatives { get; private set; } = new();
-
-        public BleachChar(BleachAPIModel dto)
-        {
-            Id = Guid.NewGuid();
-            ExternalId = dto.Id;
-            Slug = dto.Slug;
-            NameEnglish = dto.NameEnglish;
-            NameKanji = dto.NameKanji;
-            NameRomaji = dto.NameRomaji;
-            Description = dto.Description;
-            Race = dto.Race;
-            Gender = dto.Gender;
-            Birthday = dto.Birthday;
-            Age = dto.Age;
-            Occupation = dto.Occupation;
-            Education = dto.Education;
-            Shikai = dto.Shikai;
-            Bankai = dto.Bankai;
-            CreatedAt = DateTime.UtcNow;
-            UpdatedAt = DateTime.UtcNow;
-
-            foreach (var aff in dto.Affiliation)
-                Affiliations.Add(new CharAffiliation(Id, aff, false));
-
-            foreach (var prevAff in dto.PreviousAffiliation)
-                Affiliations.Add(new CharAffiliation(Id, prevAff, true));
-
-            foreach (var op in dto.BaseOps)
-                BaseOps.Add(new CharBaseOps(Id, op));
-
-            foreach (var rel in dto.Relatives)
-                Relatives.Add(new CharRelatives(Id, rel));
-        }
     }
 }
 

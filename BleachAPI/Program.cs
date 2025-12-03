@@ -1,3 +1,4 @@
+using BleachAPI.DataBase;
 using BleachAPI.Repository;
 using BleachAPI.Services;
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddHttpClient<BleachAPIService>(Bclient => Bclient.BaseAddress = 
 new Uri("https://bleach-api-8v2r.onrender.com/"));
+builder.Services.AddSingleton<SqlConnectionFactory>();
 builder.Services.AddSingleton<BleachAPIService>();
 builder.Services.AddSingleton<BleachAPIRepository>();
 

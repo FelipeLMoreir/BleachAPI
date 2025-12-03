@@ -5,8 +5,9 @@ namespace BleachAPI.Models.DTOs
     public class ZanpakutoDTO
     {
         [JsonPropertyName("shikai")]
-        public string Shikai { get; init; } = string.Empty;
+        public string Shikai { get; init; } = "";
+
         [JsonPropertyName("bankai")]
-        public string Bankai { get; init; } = string.Empty;
+        public string Bankai { get; init; } = "";
     }
 }

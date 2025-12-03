@@ -5,10 +5,12 @@ namespace BleachAPI.Models.DTOs
     public class NameDTO
     {
         [JsonPropertyName("english")]
-        public string NameEnglish { get; init; } = string.Empty;
+        public string English { get; init; } = "";
+
         [JsonPropertyName("kanji")]
-        public string NameKanji { get; init; } = string.Empty;
+        public string Kanji { get; init; } = "";
+
         [JsonPropertyName("romaji")]
-        public string NameRomaji { get; init; } = string.Empty;
+        public string Romaji { get; init; } = "";
     }
 }
