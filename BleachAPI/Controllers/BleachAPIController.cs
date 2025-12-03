@@ -1,4 +1,6 @@
-﻿using BleachAPI.Models.DTOs;
+﻿using BleachAPI.Models;
+using BleachAPI.Models.DTOs;
+using BleachAPI.Repository;
 using BleachAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,21 +11,14 @@ namespace BleachAPI.Controllers
     [ApiController]
     public class BleachAPIController : ControllerBase
     {
-        private readonly BleachAPIService _bleachApiService;
-
-        public BleachAPIController(BleachAPIService bleachAPIService)
-        {
-            _bleachApiService = bleachAPIService;
-        }
+        private readonly BleachAPIRepository _repo;
+        public BleachAPIController(BleachAPIRepository repo) => _repo = repo;
 
         [HttpGet("{race}/{name}")]
-        public async Task<ActionResult<CharacterDTO>> GetCharByRaceAndName(string race, string name)
+        public async Task<IActionResult> Save(string race, string name)
         {
-            var character = await _bleachApiService.GetCharacterByRaceAndNameAsync(race, name);
-
-            if (character is null) return NotFound();
-
-            return Ok(character);
+            await _repo.SaveFromApiAsync(race, name);
+            return Ok("Salvo!");
         }
     }
 }

@@ -13,6 +13,7 @@ namespace BleachAPI.Services
         public BleachAPIService(HttpClient client)
         {
             _client = client; 
+            _client.BaseAddress = new Uri("https://bleach-api-8v2r.onrender.com/");
         }
         public async Task<CharacterDTO?> GetCharacterByRaceAndNameAsync (string race, string name)
         {

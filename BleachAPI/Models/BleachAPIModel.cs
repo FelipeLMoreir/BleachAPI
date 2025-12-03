@@ -41,6 +41,12 @@ namespace BleachAPI.Models
         public string Shikai { get; set; }
         [JsonPropertyName("bankai")]
         public string Bankai { get; set; }
+
+        public BleachAPIModel()
+        {
+            
+        }
+
         public BleachAPIModel(
             string id,
             string slug,
